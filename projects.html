@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codazc - Projects</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    'fin-orange': '#ff5e3a', 
+                    'fede-black': '#05050A', 
+                    'fede-card': '#111116',  
+                    'light-bg': '#f4f5f8',   
+                },
+                borderRadius: {
+                    '4xl': '2rem',
+                    '5xl': '2.5rem',
+                }
+            }
+        }
+      }
+    </script>
+    <style>
+        .hide-scroll-bar::-webkit-scrollbar { display: none; }
+        .hide-scroll-bar { -ms-overflow-style: none; scrollbar-width: none; }
+        .active-nav { background-color: #111116; color: #ff5e3a !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255,255,255,0.05); }
+        .dark .active-nav { background-color: #ff5e3a; color: white !important; box-shadow: 0 10px 15px -3px rgba(255, 94, 58, 0.3); border: none; }
+    </style>
+</head>
+
+<body class="bg-light-bg text-gray-900 dark:bg-fede-black dark:text-white min-h-screen font-sans antialiased transition-colors duration-300 flex relative">
+
+    <div id="logoutModal" class="fixed inset-0 z-[999] hidden flex items-center justify-center bg-fede-black/60 backdrop-blur-sm transition-opacity opacity-0">
+        <div class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/10 rounded-3xl p-8 max-w-sm w-full mx-4 shadow-2xl transform scale-95 transition-transform duration-300">
+            <div class="w-16 h-16 rounded-full bg-red-50 dark:bg-red-500/10 flex items-center justify-center text-red-500 mb-6 mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-center text-gray-900 dark:text-white mb-2">Ready to leave?</h3>
+            <p class="text-center text-gray-500 text-sm mb-8">Are you sure you want to log out of your Codazc session?</p>
+            <div class="flex gap-3">
+                <button onclick="hideLogoutModal()" class="flex-1 py-3 rounded-xl font-bold text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">Cancel</button>
+                <a href="index.html" class="flex-1 py-3 rounded-xl font-bold text-white bg-red-500 hover:bg-red-600 transition-colors text-center">Log out</a>
+            </div>
+        </div>
+    </div>
+
+    <aside class="w-24 h-screen fixed left-0 top-0 flex flex-col items-center py-6 gap-6 z-50">
+        
+        <a href="index.html" class="shrink-0 mb-2 hover:opacity-80 transition-opacity">
+            <img src="assets/logo.jpg" alt="Logo" class="w-10 h-10 rounded-xl shadow-md" onerror="this.src='https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-WG235CjCEHP7WeIYJidhuwwNnkOH7k.jpg'"/>
+        </a>
+
+        <div class="bg-white dark:bg-fede-card rounded-full p-1.5 flex flex-col gap-1 shadow-sm border border-gray-100 dark:border-white/5">
+            <button id="theme-light-btn" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+            </button>
+            <button id="theme-dark-btn" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+        </div>
+
+        <div class="bg-white dark:bg-fede-card rounded-full p-2 flex flex-col gap-3 shadow-sm border border-gray-100 dark:border-white/5 flex-grow mb-2">
+            <a href="dashboard.html" title="Dashboard" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            </a>
+            <a href="projects.html" title="Projects" class="active-nav w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </a>
+            <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </button>
+            <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </button>
+            <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </button>
+        </div>
+
+        <div class="bg-white dark:bg-fede-card rounded-full p-2 flex flex-col gap-2 shadow-sm border border-gray-100 dark:border-white/5 shrink-0">
+            <a href="index.html" title="Home" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+            </a>
+            <button onclick="showLogoutModal()" title="Log out" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+            </button>
+        </div>
+    </aside>
+
+    <main class="ml-24 flex-1 p-6 lg:p-10 max-w-[1600px] mx-auto w-full overflow-hidden">
+        
+        <header class="flex flex-col md:flex-row md:items-start justify-between mb-8 gap-4 border-b border-gray-200 dark:border-white/5 pb-6">
+            <div>
+                <h1 class="text-[32px] font-medium tracking-tight mb-1 text-gray-900 dark:text-white" id="headerTitle">Active Projects</h1>
+                <p class="text-gray-500 dark:text-gray-400 text-sm" id="headerSubtitle">Manage repositories, track deployments, and fix bugs.</p>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                
+                <div class="bg-white dark:bg-fede-card rounded-full px-5 py-2.5 flex items-center gap-5 shadow-sm border border-gray-100 dark:border-white/5 hidden sm:flex">
+                    <button class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+                    <button class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                        <span class="absolute top-0 right-0 w-2 h-2 bg-fin-orange rounded-full border border-white dark:border-fede-card"></span>
+                    </button>
+                    <button class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></button>
+                </div>
+
+                <div class="relative">
+                    <div class="bg-white dark:bg-fede-card rounded-full pl-1.5 pr-4 py-1.5 flex items-center gap-3 shadow-sm border border-gray-100 dark:border-white/5 cursor-pointer hover:bg-gray-50 dark:hover:bg-white/5 transition-colors" onclick="toggleProfileDropdown()">
+                        <div class="w-9 h-9 rounded-full bg-fin-orange flex items-center justify-center text-white font-bold text-xs shadow-lg shadow-fin-orange/20">AC</div>
+                        <div class="text-left hidden sm:block">
+                            <p class="text-sm font-bold leading-tight text-gray-900 dark:text-white">Arvind Chandel</p>
+                            <p class="text-[10px] text-gray-500 truncate w-24">arvinchandel265@...</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+
+                    <div id="profileDropdown" class="absolute right-0 mt-3 w-80 bg-white dark:bg-[#111116] rounded-[20px] shadow-2xl opacity-0 invisible transform translate-y-2 transition-all duration-200 z-[200] border border-gray-100 dark:border-white/10 overflow-hidden">
+                        <div class="h-2 w-full bg-fin-orange"></div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-4 mb-5">
+                                <div class="w-14 h-14 rounded-full bg-fin-orange flex items-center justify-center text-white font-semibold text-xl shadow-lg">AC</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white leading-none">Arvind Chandel</h4>
+                                    <p class="text-xs text-gray-500 mt-1">arvinchandel265@gmail.com</p>
+                                </div>
+                            </div>
+                            <button class="w-full py-2.5 rounded-lg border-2 border-fin-orange text-fin-orange font-bold text-sm mb-5 hover:bg-fin-orange/10 transition-colors">
+                                Update Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <div id="project-grid-view" class="view-content animate-in fade-in duration-500">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div onclick="showProjectStats('Codazc Web App', '8208f23', 'Active')" class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2rem] p-7 cursor-pointer hover:border-fin-orange dark:hover:border-fin-orange transition-all shadow-sm group">
+                    <div class="w-12 h-12 rounded-2xl bg-fin-orange/10 flex items-center justify-center text-fin-orange mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-fin-orange transition-colors">Codazc Web App</h3>
+                    <p class="text-gray-500 text-xs mb-6">Building the Logic Layer for the next generation of engineers.</p>
+                    <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-emerald-500">
+                        <span class="flex items-center gap-1"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> Active</span>
+                        <span class="text-gray-400">85% Done</span>
+                    </div>
+                </div>
+
+                <div onclick="showProjectStats('AI Mentor Engine', '1f4b8a2', 'Active')" class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2rem] p-7 cursor-pointer hover:border-fin-orange dark:hover:border-fin-orange transition-all shadow-sm group">
+                    <div class="w-12 h-12 rounded-2xl bg-fin-orange/10 flex items-center justify-center text-fin-orange mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-fin-orange transition-colors">AI Mentor Engine</h3>
+                    <p class="text-gray-500 text-xs mb-6">Deep learning models for automated syntax and logic debugging.</p>
+                    <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-emerald-500">
+                        <span class="flex items-center gap-1"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> Active</span>
+                        <span class="text-gray-400">40% Done</span>
+                    </div>
+                </div>
+
+                <div onclick="showProjectStats('Netflix UI Rebuild', '9c21b3f', 'Deployed')" class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2rem] p-7 cursor-pointer hover:border-fin-orange dark:hover:border-fin-orange transition-all shadow-sm group">
+                    <div class="w-12 h-12 rounded-2xl bg-fin-orange/10 flex items-center justify-center text-fin-orange mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-fin-orange transition-colors">Netflix UI Rebuild</h3>
+                    <p class="text-gray-500 text-xs mb-6">Pixel-perfect React clone focusing on dynamic state and carousels.</p>
+                    <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-emerald-500">
+                        <span class="flex items-center gap-1"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> Deployed</span>
+                        <span class="text-gray-400">100% Done</span>
+                    </div>
+                </div>
+
+                <div onclick="showProjectStats('E-Commerce API', '7b9a11c', 'Testing')" class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2rem] p-7 cursor-pointer hover:border-fin-orange dark:hover:border-fin-orange transition-all shadow-sm group">
+                    <div class="w-12 h-12 rounded-2xl bg-fin-orange/10 flex items-center justify-center text-fin-orange mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-fin-orange transition-colors">E-Commerce API</h3>
+                    <p class="text-gray-500 text-xs mb-6">Robust backend using Python and PostgreSQL for high-traffic stores.</p>
+                    <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-blue-500">
+                        <span class="flex items-center gap-1"><div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Testing</span>
+                        <span class="text-gray-400">70% Done</span>
+                    </div>
+                </div>
+
+                <div onclick="showProjectStats('Fintech Dashboard', '2a8e4df', 'Design')" class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2rem] p-7 cursor-pointer hover:border-fin-orange dark:hover:border-fin-orange transition-all shadow-sm group">
+                    <div class="w-12 h-12 rounded-2xl bg-fin-orange/10 flex items-center justify-center text-fin-orange mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-fin-orange transition-colors">Fintech Dashboard</h3>
+                    <p class="text-gray-500 text-xs mb-6">Modern administrative interface with orange/black accents.</p>
+                    <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-fin-orange">
+                        <span class="flex items-center gap-1"><div class="w-1.5 h-1.5 bg-fin-orange rounded-full"></div> Design</span>
+                        <span class="text-gray-400">15% Done</span>
+                    </div>
+                </div>
+
+                <div onclick="showProjectStats('Realtime Chat App', '6d5f0e1', 'Active')" class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2rem] p-7 cursor-pointer hover:border-fin-orange dark:hover:border-fin-orange transition-all shadow-sm group">
+                    <div class="w-12 h-12 rounded-2xl bg-fin-orange/10 flex items-center justify-center text-fin-orange mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-fin-orange transition-colors">Realtime Chat</h3>
+                    <p class="text-gray-500 text-xs mb-6">Websocket-based communication tool with logic-based routing.</p>
+                    <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-emerald-500">
+                        <span class="flex items-center gap-1"><div class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> Active</span>
+                        <span class="text-gray-400">55% Done</span>
+                    </div>
+                </div>
+
+                 <div onclick="showProjectStats('Codazc Compiler', '5c3a2f0', 'Prototype')" class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2rem] p-7 cursor-pointer hover:border-fin-orange dark:hover:border-fin-orange transition-all shadow-sm group">
+                    <div class="w-12 h-12 rounded-2xl bg-fin-orange/10 flex items-center justify-center text-fin-orange mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-fin-orange transition-colors">Codazc Compiler</h3>
+                    <p class="text-gray-500 text-xs mb-6">In-browser IDE for dry runs and variable tracing visualizer.</p>
+                    <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-gray-500">
+                        <span class="flex items-center gap-1"><div class="w-1.5 h-1.5 bg-gray-500 rounded-full"></div> Prototype</span>
+                        <span class="text-gray-400">5% Done</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2.5rem] shadow-sm mt-8 relative overflow-hidden h-48 sm:h-56">
+                
+                <div class="absolute inset-0 w-full h-full pointer-events-none">
+                    <svg viewBox="0 0 1000 160" class="w-full h-full overflow-visible" stroke="#ff5e3a" stroke-width="8" fill="none" stroke-linecap="round" preserveAspectRatio="xMinYMid slice">
+                        <circle cx="70" cy="90" r="25"/>
+                        <line x1="45" y1="65" x2="45" y2="400"/> 
+                        <circle cx="150" cy="90" r="25"/>
+                        <line x1="210" y1="65" x2="210" y2="115"/>
+                        <path d="M 210 85 Q 225 65 240 65"/>
+                        <line x1="270" y1="40" x2="270" y2="115"/>
+                        <line x1="240" y1="65" x2="2000" y2="65"/> 
+                        <line x1="320" y1="-100" x2="320" y2="400"/> 
+                        <line x1="320" y1="85" x2="2000" y2="85"/> 
+                        <circle cx="380" cy="90" r="25"/>
+                        <line x1="440" y1="35" x2="440" y2="115"/>
+                        <line x1="480" y1="65" x2="480" y2="115"/>
+                        <circle cx="480" cy="40" r="4" fill="#ff5e3a" stroke="none"/>
+                        <circle cx="540" cy="90" r="25"/>
+                    </svg>
+                </div>
+
+                <div class="absolute inset-0 z-10 pointer-events-none">
+                    <div class="absolute top-[46.875%] right-6 sm:right-12 transform -translate-y-1/2 pointer-events-auto">
+                        <div class="bg-white dark:bg-fede-card p-2 rounded-full">
+                            <button class="bg-gray-900 dark:bg-white text-white dark:text-black px-6 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold shadow-xl hover:scale-105 transition-transform text-sm sm:text-base">
+                                Create your portfolio
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-[calc(46.875%+45px)] right-6 sm:right-12 w-2/3 sm:w-1/2 flex justify-end pointer-events-auto">
+                        <p class="text-[10px] sm:text-xs text-gray-500 max-w-xs leading-relaxed font-medium text-right bg-white/80 dark:bg-fede-card/80 backdrop-blur-sm sm:bg-transparent sm:backdrop-blur-none p-1 rounded">
+                            * the portfolio will be generated based on the projects above in the projects section
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="project-stats-view" class="view-content hidden grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-8 space-y-6">
+                
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <button onclick="backToProjects()" class="text-gray-400 hover:text-fin-orange flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 hover:border-fin-orange transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg> 
+                        </button>
+                        <div>
+                            <h2 class="text-2xl font-black text-gray-900 dark:text-white" id="current-project-name">Project Stats</h2>
+                            <p class="text-gray-500 text-xs font-mono mt-1 tracking-widest" id="current-project-sha">SHA: 0000000</p>
+                        </div>
+                    </div>
+                    <span class="bg-fin-orange/10 text-fin-orange px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border border-fin-orange/20" id="current-project-status">Active</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-r from-fin-orange to-orange-400 p-8 rounded-[2rem] text-white shadow-xl shadow-fin-orange/20 flex flex-col justify-center">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-fin-orange/10 flex items-center justify-center text-fin-orange"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                                <h4 class="text-4xl font-black text-white">50+</h4>
+                            </div>
+                        </div>
+                        <p class="text-white/90 text-sm font-medium mt-2">Problems Solved</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2rem] p-8 flex flex-col justify-center shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center gap-3">
+                                <h4 class="text-4xl font-black text-gray-900 dark:text-white">45</h4>
+                            </div>
+                        </div>
+                        <p class="text-gray-500 text-sm font-medium mt-2">Bugs Fixed</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2.5rem] p-8 shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="flex gap-4 items-center">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Project activity trend</h3>
+                        </div>
+                        <div class="flex gap-4 text-[10px] font-black uppercase tracking-widest text-gray-500">
+                            <div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-fin-orange"></div> Problems Solved</div>
+                            <div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-[#8b5cf6]"></div> Weekly Commits</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex h-56 w-full relative mt-4">
+                        <div class="flex flex-col justify-between text-[10px] text-gray-400 font-bold h-full pb-6 pr-4">
+                            <span>25</span><span>20</span><span>15</span><span>10</span><span>05</span>
+                        </div>
+                        <div class="flex-1 relative h-full flex flex-col">
+                            <div class="flex-1 relative w-full border-b border-gray-100 dark:border-white/5">
+                                <svg viewBox="0 0 1000 200" class="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="gradientCurrent" x1="0" x2="0" y1="0" y2="1">
+                                            <stop offset="0%" stop-color="#ff5e3a" stop-opacity="0.5"/>
+                                            <stop offset="100%" stop-color="#ff5e3a" stop-opacity="0.0"/>
+                                        </linearGradient>
+                                        <linearGradient id="gradientPrev" x1="0" x2="0" y1="0" y2="1">
+                                            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.5"/>
+                                            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.0"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M0,150 C100,160 150,80 250,110 C350,140 400,200 500,100 C600,10 700,180 800,120 C900,60 950,190 1000,130 L1000,200 L0,200 Z" fill="url(#gradientPrev)" />
+                                    <path d="M0,150 C100,160 150,80 250,110 C350,140 400,200 500,100 C600,10 700,180 800,120 C900,60 950,190 1000,130" stroke="#8b5cf6" stroke-width="3" fill="none" />
+                                    <path d="M0,80 C100,70 150,130 250,110 C350,90 400,50 500,10 C600,-30 700,120 800,70 C900,20 950,150 1000,60 L1000,200 L0,200 Z" fill="url(#gradientCurrent)" />
+                                    <path d="M0,80 C100,70 150,130 250,110 C350,90 400,50 500,10 C600,-30 700,120 800,70 C900,20 950,150 1000,60" stroke="#ff5e3a" stroke-width="4" fill="none" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-gray-400 font-bold pt-4 ml-2">
+                                <span>Jan</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Aug</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2.5rem] p-8 shadow-sm">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="text-sm font-bold text-gray-900 dark:text-white border-b border-gray-100 dark:border-white/5">
+                                <tr>
+                                    <th class="pb-4">Recent Activities</th>
+                                    <th class="pb-4">Time</th>
+                                    <th class="pb-4">Status</th>
+                                    <th class="pb-4">Statuse</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs font-bold text-gray-900 dark:text-white">
+                                <tr class="border-b border-gray-50 dark:border-white/5">
+                                    <td class="py-4 flex items-center gap-3"><img src="https://ui-avatars.com/api/?name=Sajibur+Rahman&background=random" class="w-8 h-8 rounded-full"/> Sajibur Rahman</td>
+                                    <td class="py-4 text-gray-500 font-medium">10:42:22 AM</td>
+                                    <td class="py-4 text-emerald-500">Completed</td>
+                                    <td class="py-4">Mobile App Purchase</td>
+                                </tr>
+                                <tr class="border-b border-gray-50 dark:border-white/5">
+                                    <td class="py-4 flex items-center gap-3"><img src="https://ui-avatars.com/api/?name=Bhanu+Pratap&background=random" class="w-8 h-8 rounded-full"/> Bhanu Pratap</td>
+                                    <td class="py-4 text-gray-500 font-medium">09:21:45 AM</td>
+                                    <td class="py-4 text-fin-orange">Pending</td>
+                                    <td class="py-4">Hotel Booking</td>
+                                </tr>
+                                <tr class="border-b border-gray-50 dark:border-white/5">
+                                    <td class="py-4 flex items-center gap-3"><img src="https://ui-avatars.com/api/?name=Manvir+Singh&background=random" class="w-8 h-8 rounded-full"/> Manvir Singh</td>
+                                    <td class="py-4 text-gray-500 font-medium">09:21:45 AM</td>
+                                    <td class="py-4 text-emerald-500">Completed</td>
+                                    <td class="py-4">Flight Ticket Booking</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 flex items-center gap-3"><img src="https://ui-avatars.com/api/?name=Priyanka+Sharma&background=random" class="w-8 h-8 rounded-full"/> Priyanka Sharma</td>
+                                    <td class="py-4 text-gray-500 font-medium">09:21:25 AM</td>
+                                    <td class="py-4 text-orange-500">In Progress</td>
+                                    <td class="py-4">Grocery Purchase</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 space-y-6">
+                
+                <div class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2.5rem] p-8 text-center shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-sm font-bold text-gray-900 dark:text-white text-left">Overall Progress</h3>
+                        <span class="text-xs text-gray-500">Type 1</span>
+                    </div>
+                    <div class="relative w-48 h-48 mx-auto flex items-center justify-center">
+                        <div class="absolute inset-0 opacity-40 mix-blend-multiply dark:mix-blend-screen">
+                             <svg viewBox="0 0 200 200" class="w-full h-full animate-[spin_15s_linear_infinite]">
+                                <path fill="#ff5e3a" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.1,-46.3C90.4,-33.5,96,-18,95.5,-2.9C94.9,12.2,88.1,26.9,78.2,38.8C68.3,50.7,55.1,59.8,41.2,66.8C27.3,73.8,12.6,78.7,-2.6,82.7C-17.8,86.7,-33.7,89.8,-47.1,84.1C-60.5,78.4,-71.4,63.9,-78.9,49.2C-86.4,34.5,-90.5,19.6,-91.3,4.6C-92.1,-10.5,-89.6,-25.7,-81.9,-38.4C-74.2,-51.1,-61.3,-61.3,-47.6,-68.8C-33.9,-76.3,-19.1,-79.1,-3.5,-73.9C12.1,-68.7,24.2,-55.5,44.7,-76.4Z" transform="translate(100 100)" />
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 opacity-30 mix-blend-multiply dark:mix-blend-screen scale-110">
+                             <svg viewBox="0 0 200 200" class="w-full h-full animate-[spin_20s_linear_infinite_reverse]">
+                                <path fill="#8b5cf6" d="M38.1,-61.9C52.6,-53.4,69.5,-48.3,79.9,-36.8C90.3,-25.3,94.2,-7.4,90.4,8.8C86.6,25,75.1,39.5,62.3,51C49.5,62.5,35.4,71.1,20.1,75.9C4.8,80.7,-10.8,81.7,-24.8,77.7C-38.8,73.7,-51.2,64.7,-61.2,53.2C-71.2,41.7,-78.8,27.7,-81.7,12.7C-84.6,-2.3,-82.8,-18.3,-75,-31C-67.2,-43.7,-53.4,-53,-39.9,-61.6C-26.4,-70.2,-13.2,-78.1,0.2,-78.4C13.6,-78.7,27.2,-71.4,38.1,-61.9Z" transform="translate(100 100)" />
+                            </svg>
+                        </div>
+                        <svg class="w-36 h-36 transform -rotate-90 relative z-10">
+                            <circle cx="72" cy="72" r="64" fill="white" class="dark:fill-fede-card" />
+                            <circle cx="72" cy="72" r="64" stroke="currentColor" stroke-width="6" fill="transparent" stroke-dasharray="402" stroke-dashoffset="44" class="text-fin-orange" stroke-linecap="round" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+                            <span class="text-3xl font-black text-gray-900 dark:text-white">89%</span>
+                            <span class="text-[10px] text-gray-500 font-medium tracking-wide mt-1">Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2.5rem] p-8 shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-sm font-bold text-gray-900 dark:text-white">Calendar</h3>
+                        <div class="flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400 cursor-pointer"><path d="m15 18-6-6 6-6"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400 cursor-pointer"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-7 gap-y-4 text-center">
+                        <span class="text-[10px] text-gray-900 dark:text-white font-bold">S</span><span class="text-[10px] text-gray-900 dark:text-white font-bold">M</span><span class="text-[10px] text-gray-900 dark:text-white font-bold">T</span><span class="text-[10px] text-gray-900 dark:text-white font-bold">W</span><span class="text-[10px] text-gray-900 dark:text-white font-bold">T</span><span class="text-[10px] text-gray-900 dark:text-white font-bold">F</span><span class="text-[10px] text-gray-900 dark:text-white font-bold">S</span>
+                        
+                        <span class="text-xs font-medium text-gray-500">3</span><span class="text-xs font-medium text-gray-500">4</span><span class="text-xs font-medium text-gray-500">5</span><span class="text-xs font-medium text-gray-500">6</span><span class="text-xs font-medium text-gray-500">7</span><span class="text-xs font-medium text-gray-500">8</span><span class="text-xs font-medium text-gray-500">9</span>
+                        
+                        <span class="text-xs font-medium text-gray-500">10</span>
+                        <span class="text-xs font-bold bg-[#8b5cf6] text-white rounded-full w-7 h-7 mx-auto flex items-center justify-center">11</span>
+                        <span class="text-xs font-medium text-gray-500">12</span><span class="text-xs font-medium text-gray-500">13</span><span class="text-xs font-medium text-gray-500">14</span><span class="text-xs font-medium text-gray-500">15</span><span class="text-xs font-medium text-gray-500">16</span>
+                        
+                        <span class="text-xs font-medium text-gray-500">17</span><span class="text-xs font-medium text-gray-500">18</span><span class="text-xs font-medium text-gray-500">19</span><span class="text-xs font-medium text-gray-500">20</span><span class="text-xs font-medium text-gray-500">21</span><span class="text-xs font-medium text-gray-500">22</span><span class="text-xs font-medium text-gray-500">23</span>
+                        
+                        <span class="text-xs font-medium text-gray-500">24</span><span class="text-xs font-medium text-gray-500">25</span><span class="text-xs font-medium text-gray-500">26</span><span class="text-xs font-medium text-gray-500">27</span><span class="text-xs font-medium text-gray-500">28</span><span class="text-xs font-medium text-gray-500">29</span><span class="text-xs font-medium text-gray-500">30</span>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-fede-card border border-gray-100 dark:border-white/5 rounded-[2.5rem] p-8 shadow-sm">
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-6">Recent Fede Mentor Chats</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <img src="https://ui-avatars.com/api/?name=Sarah+Sharma&background=random" class="w-10 h-10 rounded-full"/>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900 dark:text-white">Sarah Sharma</p>
+                                <p class="text-xs text-gray-500">Do you need it design?</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://ui-avatars.com/api/?name=Vikram+Singh&background=random" class="w-10 h-10 rounded-full"/>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900 dark:text-white">Vikram Singh</p>
+                                <p class="text-xs text-gray-500">When is chat replaced?</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://ui-avatars.com/api/?name=Rohan+Patel&background=random" class="w-10 h-10 rounded-full"/>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900 dark:text-white">Rohan Patel</p>
+                                <p class="text-xs text-gray-500">Keeping chat topics are?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function handleLogout() {
+            const modal = document.getElementById('logoutModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.children[0].classList.remove('scale-95');
+            }, 10);
+        }
+
+        function hideLogoutModal() {
+            const modal = document.getElementById('logoutModal');
+            modal.classList.add('opacity-0');
+            modal.children[0].classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function toggleProfileDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            if (dropdown.classList.contains('opacity-0')) {
+                dropdown.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+                dropdown.classList.add('opacity-100', 'visible', 'translate-y-0');
+            } else {
+                dropdown.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            }
+        }
+
+        window.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('profileDropdown');
+            const button = dropdown.previousElementSibling;
+            if (dropdown && button && !dropdown.contains(e.target) && !button.contains(e.target)) {
+                dropdown.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            }
+        });
+
+        function showProjectStats(projectName, sha, status) {
+            document.getElementById('project-grid-view').classList.add('hidden');
+            document.getElementById('project-stats-view').classList.remove('hidden');
+            
+            document.getElementById('current-project-name').innerText = projectName;
+            document.getElementById('current-project-sha').innerText = "SHA: " + sha;
+            document.getElementById('current-project-status').innerText = status;
+            
+            document.getElementById('headerTitle').innerText = "Active Projects";
+            document.getElementById('headerSubtitle').innerText = "Performance analysing subtitle";
+            
+            window.scrollTo(0, 0);
+        }
+
+        function backToProjects() {
+            document.getElementById('project-stats-view').classList.add('hidden');
+            document.getElementById('project-grid-view').classList.remove('hidden');
+            
+            document.getElementById('headerTitle').innerText = "Active Projects";
+            document.getElementById('headerSubtitle').innerText = "Manage repositories, track deployments, and fix bugs.";
+            
+            window.scrollTo(0, 0);
+        }
+
+        const lightBtn = document.getElementById('theme-light-btn');
+        const darkBtn = document.getElementById('theme-dark-btn');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark'); updateIcons(true);
+        } else {
+            html.classList.remove('dark'); updateIcons(false);
+        }
+
+        function updateIcons(isDark) {
+            if (isDark) {
+                darkBtn.classList.add('bg-gray-800', 'text-white'); darkBtn.classList.remove('text-gray-400', 'hover:text-gray-900', 'hover:text-white');
+                lightBtn.classList.remove('bg-white', 'text-gray-900', 'shadow-sm'); lightBtn.classList.add('text-gray-400', 'hover:text-white', 'bg-transparent');
+            } else {
+                lightBtn.classList.add('bg-white', 'text-gray-900', 'shadow-sm'); lightBtn.classList.remove('text-gray-400', 'hover:text-white', 'bg-transparent');
+                darkBtn.classList.remove('bg-gray-800', 'text-white'); darkBtn.classList.add('text-gray-400', 'hover:text-gray-900', 'hover:text-white');
+            }
+        }
+
+        lightBtn.addEventListener('click', () => { html.classList.remove('dark'); localStorage.setItem('theme', 'light'); updateIcons(false); });
+        darkBtn.addEventListener('click', () => { html.classList.add('dark'); localStorage.setItem('theme', 'dark'); updateIcons(true); });
+    </script>
+</body>
+</html>

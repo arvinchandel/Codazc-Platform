@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codazc - Events & Masterclasses</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    'fede-black': '#05050A', /* Deep black background */
+                    'fede-dark': '#0F0F15',  /* Slightly lighter card background */
+                    'fede-grey': '#1a1a1a',  /* Border/Highlight grey */
+                    'fede-neon': '#ccff00',  /* Signature neon yellow */
+                    'fede-red': '#ef4444',   /* Live/Alert red */
+                    'fede-green': '#10b981', /* Success/Upcoming green */
+                }
+            }
+        }
+      }
+    </script>
+
+    <style>
+        /* Decorative sash for the "Upcoming" tag on the featured banner */
+        .ribbon {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: #10b981;
+            color: white;
+            padding: 5px 40px;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 dark:bg-fede-black dark:text-white transition-colors duration-300 antialiased flex flex-col min-h-screen overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 right-0 z-[1000] bg-transparent pt-4 transition-all duration-300 pointer-events-auto">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="assets/logo.jpg" alt="Codazc Logo" width="36" height="36" class="rounded-lg shadow-md group-hover:opacity-80 transition-opacity" onerror="this.src='logo.jpg'"/>
+                    <span class="text-xl font-bold text-slate-900 dark:text-white transition-colors">Codazc</span>
+                </a>
+
+                <nav class="hidden lg:flex items-center gap-6 px-8 py-3 rounded-full backdrop-blur-md bg-white/80 dark:bg-[#111111]/80 border border-gray-200/50 dark:border-white/10 shadow-sm">
+                    <a href="index.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-fede-neon transition-colors text-sm font-medium">Home</a>
+                    <a href="explore.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-fede-neon transition-colors text-sm font-medium">Explore</a>
+                    <a href="courses.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-fede-neon transition-colors text-sm font-medium">Courses</a>
+                    <a href="workspace.html" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-fede-neon transition-colors text-sm font-medium">Workspace</a>
+                    <a href="events.html" class="text-blue-600 dark:text-fede-neon transition-colors text-sm font-bold">Events</a>
+                </nav>
+
+                <div class="hidden lg:flex items-center gap-5">
+                    <button class="theme-toggle-btn text-gray-600 dark:text-gray-300 hover:text-fede-neon transition-all hover:rotate-12 p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
+                    </button>
+                    <a href="login.html" class="px-5 py-2.5 rounded-full bg-blue-600 dark:bg-white text-white dark:text-black hover:bg-blue-700 transition-all font-bold shadow-md text-sm">Login</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="pt-32 pb-24 flex-grow container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
+
+        <div class="mb-10 text-center md:text-left">
+            <div class="flex flex-col md:flex-row md:items-end gap-4 mb-4">
+                <h1 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight">
+                    Learn Tech Skills with <span class="text-red-600 dark:text-red-500 uppercase italic">Masterclass</span>
+                </h1>
+                <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded mb-2 md:mb-3 tracking-widest">LIVE & RECORDED</span>
+            </div>
+            <p class="text-gray-500 dark:text-gray-400">Experience learning from industry leaders for free. <span class="font-bold text-gray-800 dark:text-gray-300">(Login required to register)</span>.</p>
+        </div>
+
+        <div class="flex items-center gap-6 border-b border-gray-200 dark:border-white/10 mb-8 pb-3 text-sm font-semibold">
+            <button class="text-blue-600 dark:text-fede-neon border-b-2 border-blue-600 dark:border-fede-neon pb-3 -mb-[14px]">All Classes <span class="bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-400 text-[10px] px-2 py-0.5 rounded-full ml-1">11</span></button>
+            <button class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Live Class <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-2 py-0.5 rounded-full ml-1">1</span></button>
+            <button class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">Recorded <span class="bg-gray-100 dark:bg-white/10 text-gray-500 text-[10px] px-2 py-0.5 rounded-full ml-1">10</span></button>
+        </div>
+
+        <div class="relative w-full bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-2xl mb-16 border border-white/5 flex flex-col md:flex-row">
+            
+            <div class="absolute top-0 left-6 bg-red-500 text-white text-xs font-bold px-4 py-1.5 rounded-b-lg shadow-md z-20 flex items-center gap-2">
+                Next Live Masterclass! <span class="animate-pulse">🔴</span>
+            </div>
+            
+            <div class="ribbon z-20 hidden md:block">Upcoming</div>
+
+            <div class="absolute inset-0 opacity-10 pointer-events-none z-0">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 40 M 0 0 L 40 40" fill="none" stroke="white" stroke-width="1"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
+            </div>
+
+            <div class="p-8 md:p-12 w-full md:w-2/3 relative z-10 flex flex-col justify-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight mt-4">
+                    Data Science Zero to Hero Roadmap: <br> AMA Session with Industry Experts
+                </h2>
+                
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 bg-gray-700 rounded-full overflow-hidden border-2 border-gray-500 flex justify-center items-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-white">Ms. Vandana</p>
+                        <p class="text-xs text-gray-400">Lead Data Scientist - Global Tech</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+                    <button onclick="openAuthModal(event)" class="bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-colors w-full sm:w-auto text-center">
+                        Register Now
+                    </button>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="flex flex-col items-center">
+                            <span class="text-xs text-gray-400 mb-1">Starting in</span>
+                            <div class="flex gap-2 text-white font-mono text-sm bg-black/50 px-3 py-1.5 rounded-lg border border-white/10">
+                                <span>00<span class="text-gray-500 text-xs">d</span></span> :
+                                <span>15<span class="text-gray-500 text-xs">h</span></span> :
+                                <span>50<span class="text-gray-500 text-xs">m</span></span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-400 flex items-center gap-1 mt-4">
+                            <span class="text-orange-500">🔥</span> <span class="font-bold text-white">583</span> registered
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden md:block w-1/3 bg-gradient-to-bl from-blue-900/50 to-transparent relative z-10 border-l border-white/5">
+                <div class="absolute bottom-0 right-1/2 translate-x-1/2 w-48 h-64 bg-white/5 rounded-t-full flex items-end justify-center pb-4 border-t border-x border-white/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6 flex justify-between items-end">
+            <div>
+                <p class="text-[10px] font-bold text-blue-600 dark:text-fede-neon uppercase tracking-widest mb-1">Learn whenever you want</p>
+                <h3 class="text-2xl font-bold">Watch Previous Recordings</h3>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+            
+            <div class="bg-white dark:bg-fede-dark border border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col group hover:shadow-lg transition-all">
+                <div class="h-32 bg-indigo-50 dark:bg-[#0a0a0a] rounded-xl mb-6 flex items-center justify-center border border-gray-100 dark:border-white/5 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-indigo-500 group-hover:scale-110 transition-transform"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                </div>
+                <h4 class="text-xl font-bold mb-2">Freelancing 101: Video Editing & Music Prod.</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow">Learn how to monetize your creative skills. We cover software basics, finding clients, pricing models, and delivering pro-level audio/video assets.</p>
+                <button onclick="openAuthModal(event)" class="w-full py-2.5 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 rounded-lg text-sm font-bold transition-colors">Register to Watch</button>
+            </div>
+
+            <div class="bg-white dark:bg-fede-dark border border-gray-200 dark:border-white/10 rounded-2xl p-6 flex flex-col group hover:shadow-lg transition-all">
+                <div class="h-32 bg-pink-50 dark:bg-[#0a0a0a] rounded-xl mb-6 flex items-center justify-center border border-gray-100 dark:border-white/5 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-orange-500/10"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-pink-500 group-hover:scale-110 transition-transform"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                </div>
+                <h4 class="text-xl font-bold mb-2">UI/UX: Designing Safe & Accessible Interfaces</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow">What is UI/UX really? We discuss color psychology, protecting user data visually, and the complete 6-month roadmap to becoming a designer.</p>
+                <button onclick="openAuthModal(event)" class="w-full py-2.5 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 rounded-lg text-sm font-bold transition-colors">Register to Watch</button>
+            </div>
+
+        </div>
+
+        <div class="w-full h-px bg-gray-200 dark:bg-white/10 mb-16"></div>
+
+        <div class="mb-10">
+            <h2 class="text-3xl font-black mb-2">Tech Articles & AI Guides</h2>
+            <p class="text-gray-500">Stay updated on the latest tech launches and how to use new tools. <span class="font-bold text-emerald-600 dark:text-emerald-400">Free to read.</span></p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-transparent group cursor-pointer">
+                <div class="h-48 bg-slate-100 dark:bg-[#0a0a0a] border border-gray-100 dark:border-white/5 rounded-2xl mb-4 overflow-hidden relative flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-blue-500/10 group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="relative w-16 h-16 flex items-center justify-center group-hover:rotate-90 transition-transform duration-700">
+                        <div class="absolute inset-0 border-2 border-cyan-400/30 rounded-xl rotate-45"></div>
+                        <div class="absolute inset-0 border-2 border-blue-400/30 rounded-xl -rotate-12"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-500/80 dark:text-blue-400"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                    </div>
+                    <div class="absolute bottom-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur text-[10px] font-bold px-2 py-1 rounded border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white z-10">5 Min Read</div>
+                </div>
+                <p class="text-xs text-blue-600 dark:text-fede-neon font-bold mb-2">AI Agents</p>
+                <h4 class="text-lg font-bold mb-2 leading-tight group-hover:underline">The Rise of Autonomous AI Agents: How to use them efficiently</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Discover the frameworks behind the newest AI agents launched this month and the exact prompts needed to automate your daily workflows.</p>
+                <a href="#" class="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-1">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+
+            <div class="bg-transparent group cursor-pointer">
+                <div class="h-48 bg-slate-100 dark:bg-[#0a0a0a] border border-gray-100 dark:border-white/5 rounded-2xl mb-4 overflow-hidden relative flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-fuchsia-500/10 to-purple-500/10 group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0); background-size: 16px 16px;"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-fuchsia-500/60 group-hover:scale-125 transition-transform duration-700 relative z-10"><rect width="16" height="16" x="4" y="4" rx="2" ry="2"/><rect width="6" height="6" x="9" y="9" rx="1" ry="1"/></svg>
+                    
+                    <div class="absolute bottom-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur text-[10px] font-bold px-2 py-1 rounded border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white z-10">8 Min Read</div>
+                </div>
+                <p class="text-xs text-blue-600 dark:text-fede-neon font-bold mb-2">Tech News</p>
+                <h4 class="text-lg font-bold mb-2 leading-tight group-hover:underline">GPT-5 and Beyond: What's new in the tech industry this week?</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">A breakdown of the latest hardware releases, LLM updates, and what it means for developers entering the job market in 2026.</p>
+                <a href="#" class="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-1">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+
+            <div class="bg-transparent group cursor-pointer">
+                <div class="h-48 bg-slate-100 dark:bg-[#0a0a0a] border border-gray-100 dark:border-white/5 rounded-2xl mb-4 overflow-hidden relative flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-amber-500/10 to-orange-500/10 group-hover:scale-110 transition-transform duration-500"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-orange-500/60 group-hover:-translate-y-2 transition-transform duration-700 relative z-10"><path d="M12 2v20"/><path d="m3 11 9-9 9 9"/><path d="M12 12v6"/></svg>
+                    
+                    <div class="absolute bottom-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur text-[10px] font-bold px-2 py-1 rounded border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white z-10">4 Min Read</div>
+                </div>
+                <p class="text-xs text-blue-600 dark:text-fede-neon font-bold mb-2">Career</p>
+                <h4 class="text-lg font-bold mb-2 leading-tight group-hover:underline">The Future of Creative Freelancing in an AI World</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4">Is it safe to pursue graphic design or music production? Here is how freelancers are leveraging AI to double their output safely.</p>
+                <a href="#" class="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-1">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="py-10 bg-white dark:bg-fede-black border-t border-gray-200 dark:border-white/5 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <img src="assets/logo.jpg" alt="Codazc Logo" width="28" height="28" class="rounded-lg shadow-sm" onerror="this.src='logo.jpg'" />
+                <span class="text-lg font-bold">Codazc</span>
+            </div>
+            <div class="text-xs text-gray-500">
+                &copy; 2026 Codazc Digital. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div id="authModal" class="fixed inset-0 bg-black/70 z-[2000] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-md">
+        <div class="bg-white dark:bg-fede-dark rounded-[3rem] p-10 max-w-md w-full mx-4 text-center transform scale-90 transition-transform duration-300 border border-gray-100 dark:border-white/5 shadow-2xl" id="authModalCard">
+            <div class="w-20 h-20 bg-red-50 dark:bg-red-500/20 text-red-600 dark:text-red-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h2 class="text-3xl font-black mb-3 leading-none text-gray-900 dark:text-white">Members Only</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-10 leading-relaxed">
+                You're trying to access an exclusive Masterclass. Please log in or create a free Codazc account to reserve your seat and watch recordings.
+            </p>
+            <div class="flex flex-col gap-3">
+                <a href="login.html" class="w-full py-4 bg-red-600 hover:bg-red-700 text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-red-500/20">Sign In / Join Now</a>
+                <button onclick="closeAuthModal()" class="w-full py-4 text-gray-500 hover:text-gray-900 dark:hover:text-white font-bold transition-all text-xs">Maybe Later</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        }
+
+        themeToggleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                htmlElement.classList.toggle('dark');
+                localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
+            });
+        });
+
+        const authModal = document.getElementById('authModal');
+        const authModalCard = document.getElementById('authModalCard');
+
+        function openAuthModal(e) {
+            e.preventDefault(); 
+            authModal.classList.remove('opacity-0', 'pointer-events-none');
+            authModalCard.classList.remove('scale-90');
+            authModalCard.classList.add('scale-100');
+        }
+
+        function closeAuthModal() {
+            authModal.classList.add('opacity-0', 'pointer-events-none');
+            authModalCard.classList.remove('scale-100');
+            authModalCard.classList.add('scale-90');
+        }
+    </script>
+</body>
+</html>

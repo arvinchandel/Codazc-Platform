@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codazc - Login / Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    'fede-black': '#05050A',
+                    'fede-dark': '#0F0F15',
+                    'fede-blue': '#4e7bff',
+                    'fede-neon': '#ccff00',
+                }
+            }
+        }
+      }
+    </script>
+</head>
+
+<body class="bg-fede-black text-white min-h-screen flex items-center justify-center p-4 antialiased font-sans relative overflow-hidden">
+
+    <div class="absolute inset-0 z-0 opacity-15 pointer-events-none">
+        <img src="assets/download (18).jpg" alt="" class="w-full h-full object-cover" onerror="this.src='download (18).jpg'">
+    </div>
+
+    <div class="w-full max-w-5xl bg-white dark:bg-fede-dark rounded-[2rem] shadow-2xl flex flex-col md:flex-row overflow-hidden border border-gray-200 dark:border-white/5 relative z-10 min-h-[650px]">
+
+        <div class="w-full md:w-5/12 bg-gray-50 dark:bg-black p-10 flex flex-col justify-between relative overflow-hidden border-r border-gray-200 dark:border-white/5">
+            
+            <div class="absolute -bottom-20 -left-20 w-80 h-80 border border-fede-blue/20 rounded-full pointer-events-none"></div>
+
+            <a href="index.html" class="flex items-center gap-3 relative z-10 w-fit group">
+                <img src="assets/logo.jpg" alt="Codazc Logo" width="45" height="45" class="rounded-xl shadow-lg border border-white/10 group-hover:opacity-80 transition-opacity" onerror="this.src='https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-WG235CjCEHP7WeIYJidhuwwNnkOH7k.jpg'"/>
+                <span class="text-2xl font-black tracking-tight text-gray-900 dark:text-white uppercase">Codazc</span>
+            </a>
+
+            <div class="relative z-10 my-12">
+                <h2 class="text-4xl font-black mb-4 leading-tight text-gray-900 dark:text-white">
+                    Master the <br> <span class="text-fede-blue">Logic Layer.</span>
+                </h2>
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">
+                    Access technical resources, logic-building modules, and professional engineering tracks.
+                </p>
+            </div>
+
+            <div class="relative z-10">
+                <a href="index.html" class="flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-fede-blue transition-colors uppercase tracking-widest">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m15 18-6-6 6-6"/></svg>
+                    Return to home
+                </a>
+            </div>
+        </div>
+
+        <div class="w-full md:w-7/12 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-white dark:bg-fede-dark transition-all duration-300">
+            
+            <div class="mb-10 text-center md:text-left">
+                <h3 id="formTitle" class="text-3xl font-black mb-2 text-gray-900 dark:text-white uppercase tracking-tight">Sign In</h3>
+                <p id="formSubtitle" class="text-gray-500 text-sm">
+                    New to the platform? 
+                    <button type="button" onclick="toggleForm()" class="text-fede-blue font-bold hover:underline transition-colors">Register an account</button>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-8">
+                <button type="button" title="Sign in with Google" class="flex items-center justify-center py-3.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/></svg>
+                </button>
+                <button type="button" title="Sign in with GitHub" class="flex items-center justify-center py-3.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-gray-900 dark:text-white"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.45-1.15-1.11-1.46-1.11-1.46c-.9-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+                </button>
+                <button type="button" title="Sign in with X" class="flex items-center justify-center py-3.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="text-gray-900 dark:text-white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </button>
+            </div>
+
+            <div class="relative flex items-center mb-8">
+                <div class="flex-grow border-t border-gray-200 dark:border-white/10"></div>
+                <span class="flex-shrink mx-4 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">or use email</span>
+                <div class="flex-grow border-t border-gray-200 dark:border-white/10"></div>
+            </div>
+
+            <form id="authForm" class="flex flex-col gap-5">
+                <div id="nameField" class="hidden">
+                    <input type="text" id="nameInput" placeholder="Full Name" class="w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-4 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-fede-blue transition-colors">
+                </div>
+
+                <input type="email" id="emailInput" required placeholder="Email Address" class="w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-4 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-fede-blue transition-colors">
+
+                <div class="relative group">
+                    <input type="password" id="passwordInput" required placeholder="Password" class="w-full bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-4 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-fede-blue transition-colors">
+                    <a href="#" id="forgotPassword" class="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-bold text-fede-blue uppercase tracking-widest hover:underline">Forgot?</a>
+                </div>
+
+                <button type="submit" id="submitBtn" class="mt-4 w-full py-4 bg-fede-blue hover:bg-blue-600 text-white rounded-xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-blue-500/20 flex justify-center items-center gap-2 group">
+                    Enter Workspace
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Force dark mode for aesthetic consistency
+        document.documentElement.classList.add('dark');
+
+        let isLogin = true;
+        const formTitle = document.getElementById('formTitle');
+        const formSubtitle = document.getElementById('formSubtitle');
+        const nameField = document.getElementById('nameField');
+        const nameInput = document.getElementById('nameInput');
+        const forgotPassword = document.getElementById('forgotPassword');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Function to switch between Login and Signup UI
+        function toggleForm(forceSignUp = false) {
+            isLogin = forceSignUp ? false : !isLogin;
+            if (isLogin) {
+                formTitle.innerText = "Sign In";
+                formSubtitle.innerHTML = `New to the platform? <button type="button" onclick="toggleForm()" class="text-fede-blue font-bold hover:underline transition-colors">Register an account</button>`;
+                nameField.classList.add('hidden');
+                nameInput.required = false;
+                forgotPassword.style.display = 'block';
+                submitBtn.innerHTML = `Enter Workspace <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`;
+            } else {
+                formTitle.innerText = "Register";
+                formSubtitle.innerHTML = `Already have an account? <button type="button" onclick="toggleForm()" class="text-fede-blue font-bold hover:underline transition-colors">Sign In</button>`;
+                nameField.classList.remove('hidden');
+                nameInput.required = true;
+                forgotPassword.style.display = 'none';
+                submitBtn.innerHTML = `Create Account <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`;
+            }
+        }
+
+        // Check the URL when the page loads
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            // If the URL has ?mode=signup, trigger the sign up form instantly
+            if (urlParams.get('mode') === 'signup') {
+                toggleForm(true); 
+            }
+        });
+
+        // Handle submission: Redirects strictly to dashboard.html now
+        document.getElementById('authForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            submitBtn.innerHTML = "Validating...";
+            setTimeout(() => { window.location.href = 'dashboard.html'; }, 800);
+        });
+    </script>
+</body>
+</html>

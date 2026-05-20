@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codazc - Free Enrollment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom floating animation for the background spheres */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+        .sphere-1 { animation: float 6s ease-in-out infinite; }
+        .sphere-2 { animation: float 8s ease-in-out infinite reverse; }
+        .sphere-3 { animation: float 5s ease-in-out infinite 1s; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-orange-300 via-orange-400 to-orange-500 min-h-screen flex items-center justify-center p-4 relative overflow-hidden font-sans">
+
+    <div class="absolute top-10 left-10 w-40 h-40 bg-gradient-to-br from-orange-200 to-orange-400 rounded-full opacity-60 blur-sm sphere-1 pointer-events-none shadow-xl"></div>
+    <div class="absolute top-1/2 right-10 w-64 h-64 bg-gradient-to-br from-orange-300 to-orange-500 rounded-full opacity-70 blur-md sphere-2 pointer-events-none shadow-2xl"></div>
+    <div class="absolute bottom-10 left-1/4 w-32 h-32 bg-gradient-to-br from-orange-200 to-orange-400 rounded-full opacity-50 blur-sm sphere-3 pointer-events-none shadow-lg"></div>
+
+    <div class="relative z-10 w-full max-w-3xl bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+        
+        <div class="flex justify-between items-center mb-8">
+            <div></div> <a href="login.html" class="text-xs font-bold text-gray-500">Already a Member? <span class="text-orange-500">Sign In</span></a>
+        </div>
+
+        <h2 class="text-2xl font-bold text-center text-gray-900 mb-8">Sign up for Free Track</h2>
+
+        <div class="flex items-center justify-center mb-10 text-xs">
+            <div class="flex flex-col items-center gap-1"><div class="w-6 h-6 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold">1</div><span class="text-gray-800 font-semibold">Basic Details</span></div>
+            <div class="w-16 h-px bg-gray-200 mx-2 -mt-4"></div>
+            <div class="flex flex-col items-center gap-1"><div class="w-6 h-6 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center font-bold">2</div><span class="text-gray-400">Education</span></div>
+        </div>
+
+        <form id="enrollForm" class="space-y-6">
+            
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Basic Details</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Full Name</label>
+                    <input type="text" required placeholder="Enter Full Name" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Email Address</label>
+                    <input type="email" required placeholder="name@college.edu" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Learning Goal</label>
+                    <select required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500">
+                        <option value="">- Select Goal -</option>
+                        <option value="interviews">Crack Interviews</option>
+                        <option value="logic">Build Logic</option>
+                        <option value="hobby">Just Exploring</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Phone Number</label>
+                    <input type="number" required placeholder="9876543210" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500 hide-arrows">
+                    <style>input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }</style>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Education</h3>
+                <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200 flex flex-col md:flex-row gap-4">
+                    <div class="flex-1">
+                        <label class="block text-xs font-bold text-gray-700 mb-1">College / University</label>
+                        <input type="text" required placeholder="Enter College" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div class="w-full md:w-32">
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Grad Year</label>
+                        <input type="number" required placeholder="YYYY" min="2020" max="2030" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-orange-500">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center pt-6">
+                <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-10 rounded-full shadow-lg shadow-orange-500/30 transition-transform hover:-translate-y-1">
+                    Save & Continue
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div id="successPopup" class="fixed inset-0 bg-black/80 z-[2000] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl p-8 max-w-sm text-center transform scale-90 transition-transform duration-300" id="popupCard">
+            <div class="w-20 h-20 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl shadow-inner">
+                🔥
+            </div>
+            <h2 class="text-2xl font-black text-gray-900 mb-2">Bet! You're In.</h2>
+            <p class="text-gray-500 text-sm mb-6">Successfully enrolled, no cap. Time to grind those logic points and build something crazy.</p>
+            <a href="workspace.html" class="block w-full py-3 bg-gray-900 hover:bg-black text-white rounded-xl font-bold transition-colors">
+                Let's get this bread 🚀
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Form submission logic
+        const form = document.getElementById('enrollForm');
+        const popup = document.getElementById('successPopup');
+        const popupCard = document.getElementById('popupCard');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop page from refreshing
+            
+            // Show the popup overlay
+            popup.classList.remove('opacity-0', 'pointer-events-none');
+            popupCard.classList.remove('scale-90');
+            popupCard.classList.add('scale-100');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codazc - Learn to Code</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+</head>
+<body class="bg-white text-gray-900 dark:bg-[#09090b] dark:text-white transition-colors duration-300">
+
+    <main class="min-h-screen bg-white dark:bg-[#09090f] transition-colors duration-300 relative overflow-hidden">
+      
+      <div 
+        class="fixed inset-0 pointer-events-none dark:hidden"
+        style="background: radial-gradient(ellipse 120% 80% at 50% 0%, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.15) 40%, transparent 70%);">
+      </div>
+      
+      <div 
+        class="fixed top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[700px] pointer-events-none hidden dark:block"
+        style="background: radial-gradient(ellipse 100% 100% at 50% 100%, rgba(88, 28, 135, 0.8) 0%, rgba(126, 34, 206, 0.5) 30%, rgba(139, 92, 246, 0.3) 50%, transparent 70%); filter: blur(40px);">
+      </div>
+      
+      <div 
+        class="fixed top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[500px] pointer-events-none hidden dark:block"
+        style="background: radial-gradient(ellipse 100% 100% at 50% 100%, rgba(168, 85, 247, 0.6) 0%, rgba(139, 92, 246, 0.3) 40%, transparent 60%); filter: blur(20px);">
+      </div>
+      
+      <div 
+        class="fixed top-[280px] left-1/2 -translate-x-1/2 w-[1000px] h-[100px] pointer-events-none hidden dark:block"
+        style="background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(255, 255, 255, 0.15) 0%, transparent 70%); filter: blur(15px);">
+      </div>
+      
+      <div class="relative z-10">
+        
+       <header class="fixed top-0 left-0 w-full z-[1000] pt-4 transition-all duration-300 pointer-events-auto">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16 md:h-20">
+                    
+                    <div class="flex items-center gap-2">
+                        <img 
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-WG235CjCEHP7WeIYJidhuwwNnkOH7k.jpg" 
+                            alt="Codazc Logo" 
+                            width="36" 
+                            height="36" 
+                            class="rounded-lg shadow-md"
+                            onerror="this.src='assets/logo.jpg'"
+                        />
+                        <span class="text-xl font-bold text-slate-900 dark:text-white transition-colors duration-300">
+                            Codazc
+                        </span>
+                    </div>
+
+                    <nav class="hidden lg:flex items-center gap-6 px-8 py-3 rounded-full backdrop-blur-md bg-white/70 dark:bg-[#11111A]/80 border border-gray-200/50 dark:border-white/10 shadow-sm transition-all duration-300">
+                    <a href="index.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm font-medium">Home</a>
+                    <a href="explore.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm font-medium">Explore</a>
+                    <a href="courses.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm font-medium">Courses</a>
+                    <a href="workspace.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm font-medium">Workspace</a>
+                    <a href="workspace.html#playground" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm font-medium">Playground</a>
+                    <a href="events.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm font-medium">Events</a>
+                </nav>
+                    <div class="hidden lg:flex items-center gap-5">
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-blue-500 transition-colors"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            </div>
+                            <input type="text" placeholder="Search..." class="pl-9 pr-4 py-2 bg-white/70 dark:bg-[#11111A]/80 backdrop-blur-md hover:bg-white dark:hover:bg-white/10 border border-gray-200/50 dark:border-white/10 rounded-full text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all w-40 xl:w-48 shadow-sm">
+                        </div>
+
+                        <button class="theme-toggle-btn text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:rotate-12 p-1" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        </button>
+
+                        <button onclick="window.location.href='login.html?mode=signup'" class="px-5 py-2.5 rounded-full bg-[#8b5cf6] hover:bg-[#7c3aed] transition-all duration-300 text-white text-sm font-medium shadow-md hover:shadow-lg border-0">
+                            Get Started
+                        </button>
+                    </div>
+
+                    <div class="lg:hidden flex items-center gap-4">
+                        <button class="theme-toggle-btn text-gray-600 dark:text-gray-300 hover:rotate-12 transition-all p-1" aria-label="Toggle Dark Mode">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        </button>
+                        <button id="mobile-menu-btn" class="p-2 text-slate-900 dark:text-white transition-colors duration-300" aria-label="Toggle menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="mobile-menu" class="hidden lg:hidden py-4 mt-2 rounded-2xl backdrop-blur-md bg-white/90 dark:bg-[#05050A]/95 border border-black/5 dark:border-white/10 shadow-lg transition-all duration-300">
+                    <nav class="flex flex-col gap-2 px-4">
+                        <div class="relative mb-2">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            </div>
+                            <input type="text" placeholder="Search..." class="w-full pl-9 pr-4 py-2 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg text-sm dark:text-white focus:outline-none focus:border-blue-500">
+                        </div>
+                        <a href="index.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium py-2 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Home</a>
+                        <a href="explore.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium py-2 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Explore</a>
+                        <a href="courses.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium py-2 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Courses</a>
+                        <a href="workspace.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium py-2 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Workspace</a>
+                        <a href="workspace.html#playground" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium py-2 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Playground</a>
+                        <a href="events.html" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium py-2 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">Events</a>
+                        
+                        <button onclick="window.location.href='login.html?mode=signup'" class="px-4 py-2 mt-2 w-full rounded-md bg-[#8b5cf6] hover:bg-[#7c3aed] transition-all duration-300 text-white font-medium border-0">
+                            Get Started
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <section class="relative min-h-screen flex flex-col items-center justify-center pt-40 pb-32 overflow-hidden transition-colors duration-500 bg-[#fdfdfd] dark:bg-[#05050A]">
+            
+            <div class="absolute top-[8%] md:top-[12%] left-1/2 -translate-x-1/2 w-[800px] md:w-[1200px] h-[600px] pointer-events-none block dark:hidden opacity-50 z-0">
+                <svg viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <path d="M 50 380 Q 500 -70 950 380" stroke="url(#grey-gradient)" stroke-width="3" filter="url(#light-glow)"/>
+                    <defs>
+                        <linearGradient id="grey-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="rgba(156,163,175,0)" />
+                            <stop offset="50%" stop-color="rgba(17,24,39,1)" /> <stop offset="100%" stop-color="rgba(156,163,175,0)" />
+                        </linearGradient>
+                        <filter id="light-glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="2" result="blur" />
+                            <feMerge>
+                                <feMergeNode in="blur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="absolute top-[-5%] md:top-[0%] left-1/2 -translate-x-1/2 w-[800px] md:w-[1200px] h-[600px] pointer-events-none hidden dark:block opacity-90 z-0">
+                <svg viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <path d="M 100 400 Q 500 0 900 400" stroke="url(#dark-arc-gradient)" stroke-width="3" filter="url(#dark-glow)"/>
+                    <path d="M 500 500 L 500 80" stroke="url(#dark-arc-gradient)" stroke-width="3" filter="url(#dark-glow)"/>
+                    <path d="M 470 120 L 500 60 L 530 120" stroke="url(#dark-arc-gradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#dark-glow)"/>
+                    <defs>
+                        <linearGradient id="dark-arc-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="rgba(96,165,250,0)" />
+                            <stop offset="40%" stop-color="rgba(147,197,253,1)" />
+                            <stop offset="50%" stop-color="rgba(255,255,255,1)" />
+                            <stop offset="60%" stop-color="rgba(147,197,253,1)" />
+                            <stop offset="100%" stop-color="rgba(96,165,250,0)" />
+                        </linearGradient>
+                        <filter id="dark-glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="10" result="blur" />
+                            <feMerge>
+                                <feMergeNode in="blur" />
+                                <feMergeNode in="blur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="absolute top-[10%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none hidden dark:block bg-blue-500/20 blur-[100px] z-0"></div>
+            
+            <div class="relative z-10 container mx-auto px-4 text-center mt-12 md:mt-20">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-200/60 dark:border-white/10 bg-blue-50/50 dark:bg-white/5 backdrop-blur-md mb-8 text-sm font-medium text-blue-800 dark:text-slate-300 shadow-sm transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-blue-500 dark:text-blue-400"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    New V2.0 Curriculum
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white leading-[1.1] mb-6 tracking-tight transition-colors duration-300 max-w-4xl mx-auto">
+                    Innovating Tomorrow.<br>
+                    <span class="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-200 dark:to-blue-400 bg-clip-text text-transparent">
+                        Building Logic Today.
+                    </span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-gray-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed transition-colors duration-300 font-medium">
+                    A minimal, AI-powered educational system that transforms complex concepts into clear, structured learning — helping you ship ideas faster.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+                    <button onclick="window.location.href='login.html?mode=signup'" class="px-8 py-3.5 rounded-full bg-blue-600 dark:bg-[#dbeafe] text-white dark:text-blue-950 font-bold text-base shadow-lg hover:bg-blue-700 dark:hover:bg-white transition-all shadow-blue-500/30 dark:shadow-[0_0_20px_rgba(191,219,254,0.3)] w-full sm:w-auto">
+                        Get Started
+                    </button>
+                    <button onclick="window.location.href='explore.html'" class="px-8 py-3.5 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-slate-200 font-medium text-base hover:bg-gray-50 dark:hover:bg-white/10 hover:border-blue-300 transition-all w-full sm:w-auto backdrop-blur-sm group">
+                        Vibe Check <span class="inline-block group-hover:-translate-y-1 group-hover:rotate-12 transition-transform">✨</span>
+                    </button>
+                </div>
+
+                <div class="relative w-full max-w-[1000px] mx-auto block dark:hidden z-0 mb-12">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-80 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+                </div>
+
+                <div class="relative w-full max-w-[1000px] mx-auto hidden dark:block z-0 mb-12">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-400 to-transparent shadow-[0_0_20px_rgba(96,165,250,0.8)] opacity-70"></div>
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[80px] bg-blue-500/20 blur-[40px] pointer-events-none"></div>
+                </div>
+
+                <div class="relative z-10 inline-flex items-center bg-white/70 dark:bg-[#11111A]/60 backdrop-blur-xl border border-blue-100 dark:border-white/5 rounded-[2rem] p-1.5 shadow-xl dark:shadow-2xl shadow-blue-500/10 dark:shadow-black/50 transition-all duration-500 mt-2 hover:-translate-y-1">
+                    <div class="flex items-center gap-8 px-6 py-4">
+                        <div class="text-left border-r border-gray-200/80 dark:border-white/10 pr-8">
+                            <div class="flex text-blue-500/90 dark:text-blue-400 mb-1">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            </div>
+                            <div class="text-2xl font-bold text-gray-900 dark:text-white">1,200+</div>
+                            <div class="text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 font-semibold">Users on</div>
+                        </div>
+                        <div class="flex items-center gap-6 opacity-90 dark:opacity-100">
+                            <div class="text-center">
+                                <div class="text-sm font-bold text-gray-700 dark:text-slate-300">Trustpilot</div>
+                                <div class="flex items-center justify-center gap-1 text-xs text-blue-600 dark:text-blue-400 font-bold">4.9</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-bold text-gray-700 dark:text-slate-300">Capterra</div>
+                                <div class="flex items-center justify-center gap-1 text-xs text-blue-600 dark:text-blue-400 font-bold">4.8</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-bold text-gray-700 dark:text-slate-300">G2</div>
+                                <div class="flex items-center justify-center gap-1 text-xs text-blue-600 dark:text-blue-400 font-bold">4.7</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section id="services" class="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gray-50/50 dark:bg-[#09090f] transition-colors duration-300">
+            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center mb-16 md:mb-20">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+                        Our Core <span class="bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">Services</span>
+                    </h2>
+                    <p class="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                        Master the tools of tomorrow. From foundational coding to advanced artificial intelligence, we provide the skills you need to build your digital future.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    
+                    <div class="group bg-white dark:bg-[#11111A] border border-gray-100 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-indigo-500/30 dark:hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3.5 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 shadow-sm shadow-orange-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300 dark:text-gray-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">HTML & CSS</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Master the fundamentals of web development with semantic HTML5 and modern CSS techniques including Flexbox and Grid.
+                        </p>
+                    </div>
+
+                    <div class="group bg-white dark:bg-[#11111A] border border-gray-100 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-indigo-500/30 dark:hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3.5 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 shadow-sm shadow-indigo-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300 dark:text-gray-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">AI & ML</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Dive into artificial intelligence and machine learning. Build intelligent systems that learn, adapt, and transform data into insights.
+                        </p>
+                    </div>
+
+                    <div class="group bg-white dark:bg-[#11111A] border border-gray-100 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-indigo-500/30 dark:hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3.5 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 shadow-sm shadow-cyan-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300 dark:text-gray-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">React / Redux</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Build scalable, high-performance web applications with React ecosystem and state management using Redux Toolkit.
+                        </p>
+                    </div>
+
+                    <div class="group bg-white dark:bg-[#11111A] border border-gray-100 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-indigo-500/30 dark:hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3.5 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 shadow-sm shadow-green-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300 dark:text-gray-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Spreadsheet</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Advanced spreadsheet mastery with Excel and Google Sheets. Data analysis, automation, and visualization techniques.
+                        </p>
+                    </div>
+
+                    <div class="group bg-white dark:bg-[#11111A] border border-gray-100 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-indigo-500/30 dark:hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3.5 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 shadow-sm shadow-pink-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300 dark:text-gray-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Soft Skills</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Develop essential professional skills including communication, leadership, teamwork, and problem-solving abilities.
+                        </p>
+                    </div>
+
+                    <div class="group bg-white dark:bg-[#11111A] border border-gray-100 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-indigo-500/30 dark:hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3.5 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 shadow-sm shadow-amber-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300 dark:text-gray-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">SQL</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Master database management with SQL. Query optimization, data modeling, and working with relational databases.
+                        </p>
+                    </div>
+
+                    <div class="group bg-white dark:bg-[#11111A] border border-gray-100 dark:border-white/5 rounded-2xl p-6 md:p-8 hover:border-indigo-500/30 dark:hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 lg:col-start-2">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="p-3.5 rounded-xl bg-gradient-to-br from-purple-500 to-fuchsia-500 shadow-sm shadow-purple-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300 dark:text-gray-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">UI/UX Design</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                            Create stunning, user-centered digital experiences. Learn design thinking, prototyping, and modern design tools.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="testimonials" class="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-white dark:bg-[#09090f] transition-colors duration-300">
+            
+            <style>
+                @keyframes marquee {
+                    0% { transform: translateX(0%); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-marquee {
+                    animation: marquee 30s linear infinite;
+                }
+                .animate-marquee:hover {
+                    animation-play-state: paused;
+                }
+                .hide-scroll-bar {
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                }
+                .hide-scroll-bar::-webkit-scrollbar {
+                    display: none; /* Chrome, Safari and Opera */
+                }
+            </style>
+
+            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="mb-20 md:mb-28">
+                    <h3 class="text-center text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-8 md:mb-10 tracking-tight">
+                        Trusted by 
+                        <span class="bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                            Innovators
+                        </span>
+                    </h3>
+                    
+                    <div class="relative overflow-hidden flex">
+                        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white dark:from-[#09090f] to-transparent z-10 pointer-events-none"></div>
+                        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white dark:from-[#09090f] to-transparent z-10 pointer-events-none"></div>
+                        
+                        <div class="flex animate-marquee whitespace-nowrap items-center">
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <div class="w-2 h-2 rounded-full bg-blue-600"></div><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base tracking-wide">Infosys</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">Swiggy</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-2 10h9l-9 10 2-10H4z"/></svg><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base italic">Zepto</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <span class="text-purple-600 font-black text-lg leading-none">पे</span><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base tracking-tight">PhonePe</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-1 shadow-sm">
+                                <span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">accenture</span><span class="text-purple-600 font-bold text-lg leading-none">&gt;</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/></svg><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">Meta</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <div class="w-5 h-5 bg-black rounded-full flex items-center justify-center"><div class="w-1.5 h-1.5 bg-white"></div></div><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">Uber</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <div class="w-4 h-4 bg-red-600"></div><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base uppercase tracking-wider">Chitkara</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2 22 1-19 3-1 2 19M22 22l-1-19-3-1-2 19M12 22V10M12 10l-4-4M12 10l4-4"/></svg><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">HighSpring</span>
+                            </div>
+
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <div class="w-2 h-2 rounded-full bg-blue-600"></div><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base tracking-wide">Infosys</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">Swiggy</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-2 10h9l-9 10 2-10H4z"/></svg><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base italic">Zepto</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <span class="text-purple-600 font-black text-lg leading-none">पे</span><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base tracking-tight">PhonePe</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-1 shadow-sm">
+                                <span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">accenture</span><span class="text-purple-600 font-bold text-lg leading-none">&gt;</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/></svg><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">Meta</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <div class="w-5 h-5 bg-black rounded-full flex items-center justify-center"><div class="w-1.5 h-1.5 bg-white"></div></div><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">Uber</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <div class="w-4 h-4 bg-red-600"></div><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base uppercase tracking-wider">Chitkara</span>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 px-6 py-2.5 rounded-full bg-gray-50 dark:bg-[#11111A] border border-gray-100 dark:border-white/5 flex items-center gap-2 shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2 22 1-19 3-1 2 19M22 22l-1-19-3-1-2 19M12 22V10M12 10l-4-4M12 10l4-4"/></svg><span class="text-gray-700 dark:text-gray-300 font-bold text-sm sm:text-base">HighSpring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="max-w-[1400px] mx-auto">
+                    <h3 class="text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 tracking-tight">
+                        What Our 
+                        <span class="bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                            Students Say
+                        </span>
+                    </h3>
+
+                    <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scroll-bar px-4">
+                        
+                        <div class="flex-none w-[320px] sm:w-[400px] bg-[#f8fafc] dark:bg-[#11111A] border border-indigo-50 dark:border-white/5 rounded-2xl p-8 snap-center flex flex-col justify-between shadow-sm">
+                            <div>
+                                <div class="flex gap-1 mb-6 text-indigo-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 text-[15px]">
+                                    "Codazc completely transformed my learning experience. The React/Redux course was comprehensive and practical. I landed my dream job within 3 months of completing the program."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-blue-400"></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-[15px]">Rishav Thakur</h4>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Full Stack Developer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[320px] sm:w-[400px] bg-[#f8fafc] dark:bg-[#11111A] border border-indigo-50 dark:border-white/5 rounded-2xl p-8 snap-center flex flex-col justify-between shadow-sm">
+                            <div>
+                                <div class="flex gap-1 mb-6 text-indigo-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 text-[15px]">
+                                    "The AI & ML curriculum is world-class. The instructors are industry experts who bring real-world problems to the classroom. Highly recommend!"
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-blue-400"></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-[15px]">Kaustubh Rai</h4>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Data Scientist</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[320px] sm:w-[400px] bg-[#f8fafc] dark:bg-[#11111A] border border-indigo-50 dark:border-white/5 rounded-2xl p-8 snap-center flex flex-col justify-between shadow-sm">
+                            <div>
+                                <div class="flex gap-1 mb-6 text-indigo-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 text-[15px]">
+                                    "The UI/UX Design program exceeded all my expectations. The hands-on projects and mentorship helped me build a portfolio that stands out."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-blue-400"></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-[15px]">Arihant Sambyal</h4>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">UX Designer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[320px] sm:w-[400px] bg-[#f8fafc] dark:bg-[#11111A] border border-indigo-50 dark:border-white/5 rounded-2xl p-8 snap-center flex flex-col justify-between shadow-sm">
+                            <div>
+                                <div class="flex gap-1 mb-6 text-indigo-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 text-[15px]">
+                                    "From HTML basics to advanced React patterns, Codazc provided a complete learning path. The community support is incredible!"
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-blue-400"></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-[15px]">Saksham Kapila</h4>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Frontend Engineer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[320px] sm:w-[400px] bg-[#f8fafc] dark:bg-[#11111A] border border-indigo-50 dark:border-white/5 rounded-2xl p-8 snap-center flex flex-col justify-between shadow-sm">
+                            <div>
+                                <div class="flex gap-1 mb-6 text-indigo-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 text-[15px]">
+                                    "The soft skills training complemented my technical education perfectly. Now I can communicate complex ideas with confidence to any team."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-blue-400"></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-[15px]">Ritesh Parmar</h4>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Product Manager</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-none w-[320px] sm:w-[400px] bg-[#f8fafc] dark:bg-[#11111A] border border-indigo-50 dark:border-white/5 rounded-2xl p-8 snap-center flex flex-col justify-between shadow-sm">
+                            <div>
+                                <div class="flex gap-1 mb-6 text-indigo-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 text-[15px]">
+                                    "Mastering database logic and backend infrastructure through Codazc gave me the exact tools I needed to accelerate my tech career."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-blue-400"></div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white text-[15px]">Amiteshwar</h4>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Backend Developer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer id="contact" class="relative pt-16 md:pt-24 lg:pt-32 pb-8 overflow-hidden bg-gray-50 dark:bg-[#05050A] transition-colors duration-300">
+            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center mb-16 md:mb-24">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
+                        Ready to 
+                        <span class="bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
+                            Transform
+                        </span> 
+                        Your Future?
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-8 leading-relaxed">
+                        Join thousands of students and businesses who have elevated their skills and success with Codazc.
+                    </p>
+                    <button onclick="window.location.href='login.html?mode=signup'" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-indigo-600 text-white font-medium text-lg shadow-lg hover:bg-indigo-700 transition-all shadow-indigo-200 dark:shadow-[0_0_20px_rgba(79,70,229,0.3)]">
+                        Get Started Today
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12 md:mb-16">
+                    
+                    <div class="sm:col-span-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-WG235CjCEHP7WeIYJidhuwwNnkOH7k.jpg" alt="Codazc Logo" width="40" height="40" class="rounded-lg shadow-sm" onerror="this.src='assets/logo.jpg'">
+                            <span class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">Codazc</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 max-w-xs leading-relaxed">
+                            Premium software development and education startup. Empowering the next generation of tech innovators.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-indigo-400"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                <span>hello@codazc.com</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-indigo-400"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                <span>+91 98765 43210</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500 dark:text-indigo-400"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>Punjab, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4">Company</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About Us</a></li>
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Careers</a></li>
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Blog</a></li>
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Press</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4">Services</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Web Development</a></li>
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">AI & ML Training</a></li>
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">UI/UX Design</a></li>
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Corporate Training</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-4">Support</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Help Center</a></li>
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact Us</a></li>
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
+                            <li><a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-gray-200 dark:border-white/10">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 text-center sm:text-left">
+                            © 2026 Codazc. All rights reserved.
+                        </p>
+                        <div class="flex items-center justify-center gap-4 sm:gap-6">
+                            <a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Privacy</a>
+                            <a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Terms</a>
+                            <a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Cookies</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+            });
+        </script>
+
+      </div>
+    </main>
+    
+<script>
+    const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+    const htmlElement = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        htmlElement.classList.add('dark');
+    }
+
+    themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            htmlElement.classList.toggle('dark');
+            
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    });
+</script>
+</body>
+</html>
